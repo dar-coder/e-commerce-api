@@ -39,7 +39,7 @@ flask run
 
 - If you are using Powershell
 ```bash
-$env:FLASK_APP = "hello"
+$env:FLASK_APP = "app.py"
 flask run
 ```
 
@@ -51,7 +51,7 @@ flask run
 
 - If you are using Fish
 ```bash
-set -x FLASK_APP hello
+set -x FLASK_APP app.py
 flask run
 ```
 
@@ -87,7 +87,7 @@ In order for **credit_card** to be considered valid, the following criteria must
 - It can only contain digits (0-9)
 - No 4 back-to-back digits can be same 
 
-#### /buyers/delete/<id>
+#### /buyers/delete/<int:id>
 Deletes a buyer with a certain (provided) id. This endpoint can only be accessed by using the "DELETE" method.
 
 #### /products
@@ -115,5 +115,5 @@ Converts the price of all products into desired (provided) currency and displays
 
 Each time this endpoint is accessed, in order for the price to be converted into desired currency, a request is made to http://data.fixer.io/api/latest?access_key=13c1d8b6ad2676c9afe6e02c310457fd. The API KEY that is provided is free, but can only be used to make a limited number of requests. That's why the exchange rate conversion process is wrapped in a "try - except" clause. If a request can't be made, the EUR to MKD exchange rate is hard coded to 61.63, and the EUR to USD exchange rate is hard coded to 1.10.
 
-#### /products/delete/<id>
+#### /products/delete/<int:id>
 Deletes a buyer with a certain (provided) id. This endpoint can only be accessed by using the "DELETE" method.
